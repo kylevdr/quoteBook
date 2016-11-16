@@ -1,0 +1,11 @@
+* {
+    box-sizing: border-box;
+}
+
+.quote {
+    border: 3px solid white;
+    height: 150px;
+    padding: 15px;
+    background: lightgray;
+    /*--margin: 5px;*/
+}

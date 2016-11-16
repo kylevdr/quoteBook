@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="quoteBook">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Quote Book</title>
+    <!--<link rel="stylesheet" href="https://necolas.github.io/normalize.css/5.0.0/normalize.css" type="text/css">-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="styles.css" type="text/css">
+    <script src="https://use.fontawesome.com/656dbdb103.js"></script>
+</head>
+
+<body ng-controller="mainCtrl">
+    <div class="container-fluid">
+        <h1 class="text-center">Quote Book</h1>
+        <br/>
+        <div class="row"><div class="text-center"><label for="search-input">Search: <input type="text" class="form-control" id="search-input" ng-model="filterText"></label></div></div>
+        <br/>
+        <div class="row"><div class="text-center"><label>Add Quote: <input type="text" class="form-control" ng-model="newQuoteText" placeholder="Quote Text"></input>
+        <input type="text" class="form-control" ng-model="newQuoteAuthor" placeholder="Quote Author">
+        <br/>
+        <button ng-click="addQuote()" class="btn btn-primary">Add Quote</button></label></div></div>
+        <br/><br/>
+        <div ng-repeat="quote in quotes | filter: filterText" class="col-md-3 quote text-center">
+            <p>
+                <span class="text">{{quote.text}}</span>
+                <span class="author"> -- {{quote.author}}</span>
+            </p>
+            <button class="btn btn-primary" ng-click="deleteMe(quote.text)">Delete</button>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous">
+        </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.js"></script>
+    <script src="./js/app.js"></script>
+    <script src="./js/mainCtrl.js"></script>
+    <script src="./js/dataService.js"></script>
+</body>
+
+</html>
